@@ -1,2 +1,2 @@
-rootProject.name = "template-for-java-cli-app-github-integrated"
+rootProject.name = "template-for-graalvm-cli"
 include("api", "cli")
