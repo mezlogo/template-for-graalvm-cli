@@ -35,11 +35,11 @@ jobs:
 
    - uses: gradle/gradle-build-action@v2
      env:
-       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-     with:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
 #        arguments: clean test distZip sonarqube --info --stacktrace
-       arguments: clean nativeCompile --info --stacktrace
+        arguments: clean nativeCompile --info --stacktrace
 #    - name: Release
 #      uses: softprops/action-gh-release@v1
 #      if: startsWith(github.ref, 'refs/tags/')
