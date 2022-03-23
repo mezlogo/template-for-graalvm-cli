@@ -12,9 +12,7 @@ jobs:
     #     graalvm: '21.0.0.2'
     #     java: 'java11'
     #     arch: 'amd64'
-    - run: ls -al
-    - run: pwd
-    # - run: ./hello.sh Bob
+    - run: ./.github/workflows/hello.sh Bill
 #    - uses: actions/setup-java@v2
 #      with:
 #        java-version: 11
