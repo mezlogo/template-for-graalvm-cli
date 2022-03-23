@@ -41,6 +41,7 @@ distributions {
 }
 
 graalvmNative {
+    toolchainDetection.set(false)
     binaries {
         named("main") {
             imageName.set("mycliapp")
