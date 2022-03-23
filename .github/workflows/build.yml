@@ -13,6 +13,7 @@ jobs:
     #     java: 'java11'
     #     arch: 'amd64'
     - run: ls -al
+    - run: pwd
     # - run: ./hello.sh Bob
 #    - uses: actions/setup-java@v2
 #      with:
