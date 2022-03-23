@@ -12,11 +12,6 @@ jobs:
         java-version: 11
         graalvm-version: 22.0.0.2
         native-image: true
-    # - uses: DeLaGuardo/setup-graalvm@5.0
-    #   with:
-    #     graalvm: '21.0.0.2'
-    #     java: 'java11'
-    #     arch: 'amd64'
     - uses: actions/setup-java@v2
       with:
         java-version: 11
@@ -27,12 +22,10 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-##        arguments: clean test distZip sonarqube --info --stacktrace
-        arguments: clean distZip nativeCompile --info --stacktrace
-#    - name: Release
-#      uses: softprops/action-gh-release@v1
-#      if: startsWith(github.ref, 'refs/tags/')
-#      with:
-#        files: |
-#          cli/build/distributions/mycliapp.zip
-#          cli/build/native/nativeCompile/mynativeapp
+        arguments: clean nativeCompile --info --stacktrace
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          cli/build/native/nativeCompile/mycliapp
