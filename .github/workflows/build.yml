@@ -13,7 +13,7 @@ jobs:
         java: 'java11'
         arch: 'amd64'
     - run: env
-    - run: which native-image
+    - run: which native-image || true
     - run: find /home/runner/work/_temp
 #    - uses: actions/setup-java@v2
 #      with:
