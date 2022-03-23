@@ -12,22 +12,25 @@ jobs:
         graalvm: '21.0.0.2'
         java: 'java11'
         arch: 'amd64'
-    - uses: actions/setup-java@v2
-      with:
-        java-version: 11
-        distribution: temurin
-        cache: 'gradle'
-    - uses: gradle/gradle-build-action@v2
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-#        arguments: clean test distZip sonarqube --info --stacktrace
-        arguments: clean distZip nativeCompile --info --stacktrace
-    - name: Release
-      uses: softprops/action-gh-release@v1
-      if: startsWith(github.ref, 'refs/tags/')
-      with:
-        files: |
-          cli/build/distributions/mycliapp.zip
-          cli/build/native/nativeCompile/mynativeapp
+    - run: env
+    - run: which native-image
+    - run: find /home/runner/work/_temp
+#    - uses: actions/setup-java@v2
+#      with:
+#        java-version: 11
+#        distribution: temurin
+#        cache: 'gradle'
+#    - uses: gradle/gradle-build-action@v2
+#      env:
+#        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      with:
+##        arguments: clean test distZip sonarqube --info --stacktrace
+#        arguments: clean distZip nativeCompile --info --stacktrace
+#    - name: Release
+#      uses: softprops/action-gh-release@v1
+#      if: startsWith(github.ref, 'refs/tags/')
+#      with:
+#        files: |
+#          cli/build/distributions/mycliapp.zip
+#          cli/build/native/nativeCompile/mynativeapp
