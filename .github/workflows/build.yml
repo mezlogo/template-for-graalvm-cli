@@ -4,17 +4,15 @@ jobs:
   build_job:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - uses: DeLaGuardo/setup-graalvm@5.0
-      with:
-        graalvm: '21.0.0.2'
-        java: 'java11'
-        arch: 'amd64'
-    - run: env
-    - run: which native-image || true
-    - run: find /home/runner/work/_temp
+    # - uses: actions/checkout@v2
+    #   with:
+    #     fetch-depth: 0
+    # - uses: DeLaGuardo/setup-graalvm@5.0
+    #   with:
+    #     graalvm: '21.0.0.2'
+    #     java: 'java11'
+    #     arch: 'amd64'
+    - run: ./hello.sh Bob
 #    - uses: actions/setup-java@v2
 #      with:
 #        java-version: 11
