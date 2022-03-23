@@ -12,7 +12,8 @@ jobs:
     #     graalvm: '21.0.0.2'
     #     java: 'java11'
     #     arch: 'amd64'
-    - run: ./hello.sh Bob
+    - run: ls -al
+    # - run: ./hello.sh Bob
 #    - uses: actions/setup-java@v2
 #      with:
 #        java-version: 11
